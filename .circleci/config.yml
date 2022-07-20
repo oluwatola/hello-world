@@ -17,17 +17,11 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  print-hello:
+  print-env-var:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo hello
-
-  print-world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo world
+      - run: echo oluwatola
 
 
 # Invoke jobs via workflows
@@ -36,4 +30,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - print-env-var
       
