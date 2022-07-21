@@ -25,5 +25,4 @@ jobs:
 workflows:
   my_workflow:
     jobs:
-      - my_job
       - error_job
