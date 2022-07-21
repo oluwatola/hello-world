@@ -11,8 +11,19 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  
+  error_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: exit 1
+      - run:
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
 
 workflows:
   my_workflow:
     jobs:
       - my_job
+      - error_job
